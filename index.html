@@ -121,3 +121,85 @@
       padding-top:16px;
       border-top:1px solid var(--ring);
       color:var(--muted);
+      font-size:0.95rem
+    }
+    footer a{color:var(--brand)}
+
+    :focus-visible{outline:3px solid var(--brand-2); outline-offset:3px; border-radius:6px}
+
+    @media print{
+      .actions, header{display:none}
+      body{color:black}
+      .container{padding:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brandmark" aria-label="ULPGC — DAEA">
+        <img src="logo2.png" alt="Logo ULPGC — DAEA">
+        <div>
+          <h1>Estudio de percepción empresarial de la sostenibilidad y la innovación en el sector del transporte de viajeros en Canarias</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="notice" role="note">
+      <strong>Cláusula de protección de datos</strong>
+    </div>
+
+    <div id="proteccion-datos">
+      De conformidad con lo dispuesto en la normativa vigente en materia de protección de datos personales, se informa a las personas participantes de que la participación en este estudio es totalmente voluntaria y anónima.
+      Los datos recabados a través de este cuestionario serán tratados de forma agregada, sin que sea posible la identificación de las personas participantes, y se utilizarán exclusivamente con fines de investigación y/o académicos, en el marco del estudio sobre movilidad sostenible desarrollado por la Cátedra Empresa de Valor Compartido, Innovación y Sostenibilidad.
+      En ningún caso los datos serán utilizados con fines comerciales, publicitarios ni cedidos a terceros con dichos propósitos.
+      La cumplimentación y envío del presente formulario implica el consentimiento expreso de la persona participante para el tratamiento de la información aportada conforme a los fines descritos.
+    </div>
+
+    <div class="consent" role="group" aria-labelledby="consent-label">
+      <label class="checkbox">
+        <input id="accept" type="checkbox">
+        <span id="consent-label">He leído y acepto la cláusula de protección de datos.</span>
+      </label>
+    </div>
+
+    <div class="actions">
+      <!-- BOTÓN PRINCIPAL BLOQUEADO HASTA ACEPTAR -->
+      <a class="btn disabled" id="continueBtn" aria-disabled="true">Acceder a la encuesta</a>
+
+      <a class="btn secondary" href="https://daea.ulpgc.es/" target="_blank" rel="noopener">Web DAEA</a>
+      <button class="btn secondary" type="button" onclick="window.print()">Imprimir / Guardar en PDF</button>
+    </div>
+
+    <footer>
+      <p>Última actualización: <time datetime="2025-11-07">7 de noviembre de 2025</time>.</p>
+    </footer>
+  </div>
+
+  <script>
+    const accept = document.getElementById('accept');
+    const continueBtn = document.getElementById('continueBtn');
+    const SURVEY_URL = "https://TU_ENLACE_A_LA_ENCUESTA"; // <- pon aquí tu enlace real
+
+    function updateBtn(){
+      const ok = accept.checked;
+
+      continueBtn.setAttribute('aria-disabled', String(!ok));
+      continueBtn.classList.toggle('disabled', !ok);
+
+      if (ok){
+        continueBtn.setAttribute('href', SURVEY_URL);
+        continueBtn.setAttribute('target', '_blank');
+        continueBtn.setAttribute('rel', 'noopener');
+      } else {
+        continueBtn.removeAttribute('href');
+        continueBtn.removeAttribute('target');
+        continueBtn.removeAttribute('rel');
+      }
+    }
+
+    accept.addEventListener('change', updateBtn);
+    updateBtn();
+  </script>
+</body>
+</html>
