@@ -31,13 +31,9 @@
   border-bottom:1px solid var(--ring);
   padding-bottom:16px;
 }
+
     .brandmark{display:flex; align-items:center; gap:16px;}
-    .brandmark img{
-      width:100%;
-      height:440px;         /* ajusta si lo quieres más alto */
-      object-fit:contain;
-      display:block;
-                  }
+    .brandmark img{height:64px; width:auto; object-fit:contain}
     .brandmark .org{font-weight:700; font-size:1.1rem; color:var(--brand)}
     h1{font-size:clamp(1.4rem, 2.2vw + 1rem, 2rem); margin:16px 0 0}
     .lead{color:var(--muted); margin-top:6px}
@@ -77,21 +73,16 @@
 </head>
 <body>
   <div class="container">
-   <header>
-  <div class="brandmark">
-    <img src="VALORCOM.PNG" alt="Logo ULPGC — DAEA">
-
-    <div class="org">
-      Laboratorio ALSA de movilidad Sostenible
-    </div>
-
-    <h1>
-      Estudio de percepción empresarial de la sostenibilidad y la innovación
-      en el sector del transporte de viajeros en Canarias
-    </h1>
-  </div>
-</header>
-
+    <header>
+      <div class="brandmark" aria-label="ULPGC — DAEA">
+        <!-- Sustituye la ruta de la imagen por el recurso oficial del logo -->
+        <img src="VALORCOM.PNG" alt="Logo ULPGC — DAEA">
+        <div>
+          <div class="org">Laboratorio ALSA de movilidad Sostenible </div>
+          <h1>Estudio de percepción empresarial de la sostenibilidad y la innovación en el sector del transporte de viajeros en Canarias </h1>
+        </div>
+      </div>
+    </header>
 
     <div class="notice" role="note">
           El concurso ha finalizado</em>.
