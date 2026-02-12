@@ -9,180 +9,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --brand:#004a87;       /* Azul institucional aproximado */
-      --brand-2:#00a0df;     /* Complementario */
-      --ink:#0f172a;         /* Texto */
-      --muted:#475569;       /* Texto secundario */
-      --bg:#ffffff;          /* Fondo */
-      --card:#f8fafc;        /* Fondo tarjetas */
-      --ring:#e2e8f0;        /* Bordes */
+      --brand:#004a87;
+      --brand-2:#00a0df;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#ffffff;
+      --card:#f8fafc;
+      --ring:#e2e8f0;
     }
     html,body{height:100%}
     body{
-      margin:0; background:var(--bg); color:var(--ink); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif; line-height:1.55;
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      line-height:1.55;
     }
     .container{max-width:880px; margin-inline:auto; padding:24px;}
-header{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  text-align:left;
-  gap:8px;
-  border-bottom:1px solid var(--ring);
-  padding-bottom:16px;
-}
 
-.brandmark{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:6px;
-  width:100%;
-}
+    header{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      text-align:left;
+      gap:8px;
+      border-bottom:1px solid var(--ring);
+      padding-bottom:16px;
+    }
 
-.brandmark img{
-  width:min(90%, 520px);
-  height:auto;
-  display:block;
-  margin:0;
-}
+    .brandmark{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      width:100%;
+    }
 
-h1{
-  font-size:clamp(1.4rem, 2.2vw + 1rem, 2rem);
-  margin:4px 0 0;
-  text-align:left;
-}
+    .brandmark img{
+      width:min(90%, 520px);
+      height:auto;
+      display:block;
+      margin:0;
+    }
 
-
-    .brandmark .org{font-weight:700; font-size:1.1rem; color:var(--brand)}
-    h1{font-size:clamp(1.4rem, 2.2vw + 1rem, 2rem); margin:16px 0 0}
-    .lead{color:var(--muted); margin-top:6px}
+    h1{
+      font-size:clamp(1.4rem, 2.2vw + 1rem, 2rem);
+      margin:4px 0 0;
+      text-align:left;
+    }
 
     .notice{
-      margin:20px 0; padding:16px; background:var(--card); border:1px solid var(--ring); border-radius:12px
+      margin:20px 0 12px;
+      padding:16px;
+      background:var(--card);
+      border:1px solid var(--ring);
+      border-radius:12px;
     }
     .notice strong{color:var(--brand)}
 
-    ol.instructions{counter-reset:item; padding-left:0; margin:0}
-    ol.instructions > li{
-      list-style:none; display:grid; grid-template-columns:auto 1fr; align-items:start; gap:14px; padding:16px; margin:14px 0; border:1px solid var(--ring); border-radius:12px; background:white;
+    .consent{
+      margin:12px 0 8px;
+      padding:12px 14px;
+      border:1px solid var(--ring);
+      border-radius:12px;
+      background:var(--card);
     }
-    ol.instructions > li::before{
-      counter-increment:item; content:counter(item); display:inline-grid; place-items:center; width:36px; height:36px; font-weight:700; color:white; background:var(--brand); border-radius:999px;
+    .checkbox{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      cursor:pointer;
+      color:var(--ink);
+      font-weight:600;
+    }
+    .checkbox input{
+      margin-top:3px;
+      width:18px;
+      height:18px;
+      accent-color:var(--brand);
     }
 
     .actions{
-      display:flex; flex-wrap:wrap; gap:12px; margin-top:24px
-            <a class="btn" id="continueBtn" href="https://TU_ENLACE_A_LA_ENCUESTA" aria-disabled="true">Acceder a la encuesta</a>
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
     }
-    .btn{appearance:none; -webkit-appearance:none; border:1px solid var(--brand); background:var(--brand); color:white; padding:12px 18px; border-radius:10px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:10px}
+
+    .btn{
+      appearance:none; -webkit-appearance:none;
+      border:1px solid var(--brand);
+      background:var(--brand);
+      color:white;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
     .btn.secondary{background:white; color:var(--brand);}
     .btn:hover{filter:brightness(0.96)}
-    
+
     .btn.disabled{
-  opacity:.55;
-  cursor:not-allowed;
-  pointer-events:none;
-}
-
-    footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--ring); color:var(--muted); font-size:0.95rem}
-    footer a{color:var(--brand)}
-
-    /* Accesible focus */
-    :focus-visible{outline:3px solid var(--brand-2); outline-offset:3px; border-radius:6px}
-
-    /* Modo impresión */
-    @media print{
-      .actions, header{display:none}
-      body{color:black}
-      .container{padding:0}
-      ol.instructions > li{break-inside:avoid}
+      opacity:.55;
+      cursor:not-allowed;
+      pointer-events:none;
     }
-    .consent{
-  margin:16px 0 8px;
-  padding:12px 14px;
-  border:1px solid var(--ring);
-  border-radius:12px;
-  background:var(--card);
-}
 
-.checkbox{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  cursor:pointer;
-  color:var(--ink);
-  font-weight:600;
-}
-
-.checkbox input{
-  margin-top:3px;
-  width:18px;
-  height:18px;
-  accent-color:var(--brand);
-}
-
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <div class="brandmark" aria-label="ULPGC — DAEA">
-        <!-- Sustituye la ruta de la imagen por el recurso oficial del logo -->
-        <img src="logo2.png" alt="Logo ULPGC — DAEA">
-        <div>
-          <h1>Estudio de percepción empresarial de la sostenibilidad y la innovación en el sector del transporte de viajeros en Canarias </h1>
-        </div>
-      </div>
-    </header>
-
-    <div class="notice" role="note">
-         <strong>Cláusula de protección de datos</strong></em>.
-    </div>
-
-        <div>
-De conformidad con lo dispuesto en la normativa vigente en materia de protección de datos personales, se informa a las personas participantes de que la participación en este estudio es totalmente voluntaria y anónima.
-Los datos recabados a través de este cuestionario serán tratados de forma agregada, sin que sea posible la identificación de las personas participantes, y se utilizarán exclusivamente con fines de investigación y/o académicos, en el marco del estudio sobre movilidad sostenible desarrollado por la Cátedra Empresa de Valor Compartido, Innovación y Sostenibilidad.
-En ningún caso los datos serán utilizados con fines comerciales, publicitarios ni cedidos a terceros con dichos propósitos.
-La cumplimentación y envío del presente formulario implica el consentimiento expreso de la persona participante para el tratamiento de la información aportada conforme a los fines descritos.
-        </div>
-
-    <div class="consent" role="group" aria-labelledby="consent-label">
-  <label class="checkbox">
-    <input id="accept" type="checkbox" required>
-    <span id="consent-label">
-      He leído y acepto la cláusula de protección de datos.
-    </span>
-  </label>
-</div>
-
-    <div class="actions">
-      <!-- Sustituye # por la URL real del concurso -->
-      <a class="btn" href="https://daea.ulpgc.es/" aria-label="https://daea.ulpgc.es/">Web DAEA</a>
-      <button class="btn secondary" type="button" onclick="window.print()" aria-label="Imprimir o guardar en PDF">Imprimir / Guardar en PDF</button>
-    </div>
-
-    <footer>
-      <p>
-        Última actualización: <time datetime="2025-11-07">7 de noviembre de 2025</time>.
-      </p>
-    </footer>
-  </div>
-  <script>
-  const accept = document.getElementById('accept');
-  const continueBtn = document.getElementById('continueBtn');
-
-  function updateBtn(){
-    const ok = accept.checked;
-    continueBtn.setAttribute('aria-disabled', String(!ok));
-    continueBtn.classList.toggle('disabled', !ok);
-    if (!ok) continueBtn.removeAttribute('href');
-    else continueBtn.href = "https://TU_ENLACE_A_LA_ENCUESTA";
-  }
-
-  accept.addEventListener('change', updateBtn);
-  updateBtn();
-</script>
-
-</body>
-</html>
+    footer{
+      margin-top:40px;
+      padding-top:16px;
+      border-top:1px solid var(--ring);
+      color:var(--muted);
