@@ -71,7 +71,10 @@ h1{
       counter-increment:item; content:counter(item); display:inline-grid; place-items:center; width:36px; height:36px; font-weight:700; color:white; background:var(--brand); border-radius:999px;
     }
 
-    .actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:24px}
+    .actions{
+      display:flex; flex-wrap:wrap; gap:12px; margin-top:24px
+            <a class="btn" id="continueBtn" href="https://TU_ENLACE_A_LA_ENCUESTA" aria-disabled="true">Acceder a la encuesta</a>
+    }
     .btn{appearance:none; -webkit-appearance:none; border:1px solid var(--brand); background:var(--brand); color:white; padding:12px 18px; border-radius:10px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:10px}
     .btn.secondary{background:white; color:var(--brand);}
     .btn:hover{filter:brightness(0.96)}
@@ -159,5 +162,21 @@ La cumplimentación y envío del presente formulario implica el consentimiento e
       </p>
     </footer>
   </div>
+  <script>
+  const accept = document.getElementById('accept');
+  const continueBtn = document.getElementById('continueBtn');
+
+  function updateBtn(){
+    const ok = accept.checked;
+    continueBtn.setAttribute('aria-disabled', String(!ok));
+    continueBtn.classList.toggle('disabled', !ok);
+    if (!ok) continueBtn.removeAttribute('href');
+    else continueBtn.href = "https://TU_ENLACE_A_LA_ENCUESTA";
+  }
+
+  accept.addEventListener('change', updateBtn);
+  updateBtn();
+</script>
+
 </body>
 </html>
