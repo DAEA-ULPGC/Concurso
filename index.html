@@ -89,6 +89,30 @@ h1{
       .container{padding:0}
       ol.instructions > li{break-inside:avoid}
     }
+    .consent{
+  margin:16px 0 8px;
+  padding:12px 14px;
+  border:1px solid var(--ring);
+  border-radius:12px;
+  background:var(--card);
+}
+
+.checkbox{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  cursor:pointer;
+  color:var(--ink);
+  font-weight:600;
+}
+
+.checkbox input{
+  margin-top:3px;
+  width:18px;
+  height:18px;
+  accent-color:var(--brand);
+}
+
   </style>
 </head>
 <body>
@@ -107,18 +131,22 @@ h1{
           El concurso ha finalizado</em>.
     </div>
 
-    <ol class="instructions">
-      <li>
         <div>
           Cláusula de protección de datos 
 De conformidad con lo dispuesto en la normativa vigente en materia de protección de datos personales, se informa a las personas participantes de que la participación en este estudio es totalmente voluntaria y anónima.
 Los datos recabados a través de este cuestionario serán tratados de forma agregada, sin que sea posible la identificación de las personas participantes, y se utilizarán exclusivamente con fines de investigación y/o académicos, en el marco del estudio sobre movilidad sostenible desarrollado por la Cátedra Empresa de Valor Compartido, Innovación y Sostenibilidad.
 En ningún caso los datos serán utilizados con fines comerciales, publicitarios ni cedidos a terceros con dichos propósitos.
 La cumplimentación y envío del presente formulario implica el consentimiento expreso de la persona participante para el tratamiento de la información aportada conforme a los fines descritos.
-
         </div>
-      </li>
-    </ol>
+
+    <div class="consent" role="group" aria-labelledby="consent-label">
+  <label class="checkbox">
+    <input id="accept" type="checkbox" required>
+    <span id="consent-label">
+      He leído y acepto la <a href="#proteccion-datos">cláusula de protección de datos</a>.
+    </span>
+  </label>
+</div>
 
     <div class="actions">
       <!-- Sustituye # por la URL real del concurso -->
